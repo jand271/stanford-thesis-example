@@ -353,14 +353,14 @@ smaller print.
 \else
     \def\@copyrightyear{\number\the\year}
 \fi
-\newif\ifcopyright \newif\iffigurespage \newif\iftablespage
+\newif\ifcopyright \newif\iffigurespage \newif\iftablespage \newif\ifalgorithmspage
 \newif\ifthesiscopyright
 
 
 \copyrighttrue 
 \thesiscopyrighttrue
 
-\figurespagetrue \tablespagetrue
+\figurespagetrue \tablespagetrue \algorithmspagetrue
 
 
 \def\@standardsub{submitted to the department of \uppercase\expandafter{\@dept}\\
@@ -545,6 +545,9 @@ Approved for the Stanford University Committee on Graduate Studies.
 
 \def\afterpreface{\newpage
         \tableofcontents
+        \ifalgorithmspage
+                \addcontentsline{toc}{chapter}{List of Algorithms}\listofalgorithms
+        \fi
         \iftablespage
                 \addcontentsline{toc}{chapter}{List of Tables}\listoftables
         \fi
