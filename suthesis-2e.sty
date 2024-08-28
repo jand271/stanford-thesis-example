@@ -353,7 +353,7 @@ smaller print.
 \else
     \def\@copyrightyear{\number\the\year}
 \fi
-\newif\ifcopyright \newif\iffigurespage \newif\iftablespage \newif\ifalgorithmspage \newif\ifacronymspage \newif\ifsymbolspage
+\newif\ifcopyright \newif\iffigurespage \newif\iftablespage \newif\ifalgorithmspage \newif\ifacronymspage \newif\ifsymbolspage \newif\ifglossarypage
 \newif\ifthesiscopyright
 
 
@@ -365,6 +365,7 @@ smaller print.
 \algorithmspagetrue
 \acronymspagetrue
 \symbolspagetrue
+\glossarypagetrue
 
 \def\@standardsub{submitted to the department of \uppercase\expandafter{\@dept}\\
                 and the committee on graduate studies}
@@ -556,6 +557,9 @@ Approved for the Stanford University Committee on Graduate Studies.
         \fi
         \iffigurespage
                 \addcontentsline{toc}{chapter}{List of Figures}\listoffigures
+        \fi
+        \ifglossarypage
+                \printnoidxglossary[type=glossary]
         \fi
         \ifacronymspage
                 \printnoidxglossary[type=acronyms]
